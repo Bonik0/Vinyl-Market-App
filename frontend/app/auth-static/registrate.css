@@ -1,0 +1,80 @@
+
+.conteiner {
+    max-width: 500px;
+    margin: auto;
+    margin-top : 200px;
+    background: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+}
+
+label {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    box-sizing: border-box;
+}
+
+
+input, select {
+    width: 100%;
+    padding: 8px 0px;
+    font-size: 20px;
+    margin-bottom: 20px;
+    border: 3px solid #ccc;
+    border-radius: 4px;
+
+}
+
+
+.registrate-btn {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    margin-left: 35%;
+    margin-top: 5px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.registrate-btn:hover {
+    background-color: #218838;
+}
+
+.login-href {
+    color: blue;
+    border: none;
+    margin-top: auto;
+    margin-left: 89%;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.error-label {
+    color: red;
+    border-color: red;
+}
+
+.error-input {
+    border-color: red;
+}
+.error-input input{
+    border-color: red;
+}
+
+.error-message {
+    color: red;
+    font-size: 20px;
+    margin-top: -15px;
+    margin-bottom: 10px;
+}

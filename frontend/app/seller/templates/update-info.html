@@ -1,0 +1,69 @@
+
+{% if item.get("id") != None %}
+    <label for="title" id="titleLabel">Title</label>
+    <div id="errorInputTitle">
+        <input type="text" id="title" name="title" value={{item["title"]}}>
+    </div>
+    <div id="TitleError" class="error-message"></div>
+
+
+
+    <label for="quantity" id="quantityLabel">Quantity</label>
+    <div id="errorInputQuantity">
+        <input type="quantity" id="quantity" name="quantity" value={{item["quantity"]}}>
+    </div>
+    <div id="QuantityError" class="error-message"></div>
+
+
+
+    <label for="releaseDate" id="releaseDateLabel">Release Date</label>
+    <div id="errorInputReleaseDate">
+        <input type="date" id="releaseDate" name="releaseDate" value={{item["release_date_year"]}}-{{item["release_date_month"]}}-{{item["release_date_day"]}}>
+    </div>
+    <div id="ReleaseDateError" class="error-message"></div>
+
+
+
+    <label for="UPC" id="UPCLabel">UPC</label>
+    <div id="errorInputUPC">
+        <input type="text" id="UPC" name="UPC" value={{item["upc"]}}>
+    </div>
+    <div id="UPCError" class="error-message"></div>
+
+
+
+    <label for="price" id="priceLabel">Price</label>
+    <div id="errorInputPrice">
+        <input type="text" id="price" name="price"  value={{item["price"]}}>
+    </div>
+    <div id="PriceError" class="error-message"></div>
+
+
+
+    <label for="url" id="imageUrlLabel">Image Url</label>
+    <div id="errorInputImageUrl">
+        <input type="url" id="imageUrl" name="imageUrl"  value={{item["image_url"]}}>
+    </div>
+    <div id="ImageUrlError" class="error-message"></div>
+
+
+    <label for="artists" id="artistsLabel">Artists</label>
+    <div id="errorInputArtists">
+        <input type="text" id="artists" name="artists">
+    </div>
+    <div id="ArtistsError" class="error-message"></div>
+
+
+    <label for="genres" id="genresLabel">Genres</label>
+    <div id="errorInputGenres">
+        <input type="text" id="genres" name="genres">
+    </div>
+    <div id="GenresError" class="error-message"></div>
+
+    
+    <button type="submit" onclick ="UpdateVinylRecord({{item["id"]}})" class="create-btn" id="UpdateButton">Update</button>
+{% else %}
+<div class="not-found-container">
+    <div class="not-found">IT IS NOT YOU VINYL RECORD</div>
+</div>
+{% endif %}

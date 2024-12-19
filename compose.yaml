@@ -1,0 +1,122 @@
+
+
+
+services:
+
+  postgres:
+    image: postgres:13-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    env_file:
+      ./core/env/postgres_connection.env
+    networks:
+      - app-network
+    
+  migrations:
+    build: 
+      context: .
+      dockerfile: migrations.Dockerfile
+    command: "alembic upgrade head"
+    volumes:
+      - ./migration:/code/migration
+      - ./core:/code/core
+    depends_on:
+      - postgres
+    networks:
+      - app-network
+  
+  auth-service:
+    build: ./auth-service
+    command: "uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000"
+    ports:
+      - 8001:8000
+    volumes:
+      - ./auth-service/app:/code/app
+      - ./core:/code/core
+    depends_on:
+      - postgres
+      - migrations
+    networks:
+      - app-network
+
+  vinyl-records-service:
+    build: ./vinyl-records-service
+    command: "uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000"
+    ports:
+      - 8002:8000
+    volumes:
+      - ./vinyl-records-service/app:/code/app
+      - ./core:/code/core
+    depends_on:
+      - postgres
+      - migrations
+    networks:
+      - app-network
+
+  seller-service:
+    build: ./seller-service
+    command: "uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000"
+    ports:
+      - 8003:8000
+    volumes:
+      - ./seller-service/app:/code/app
+      - ./core:/code/core
+    depends_on:
+      - postgres
+      - migrations
+    networks:
+      - app-network
+
+  frontend:
+    build: ./frontend
+    command: "uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000"
+    ports:
+      - 8005:8000
+    volumes:
+      - ./frontend/app:/code/app
+      - ./core:/code/core
+    depends_on:
+      - auth-service
+      - user-service
+      - vinyl-records-service
+      - seller-service
+    networks:
+      - app-network
+
+
+  user-service:
+    build: ./user-service
+    command: "uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000"
+    ports:
+      - 8004:8000
+    volumes:
+      - ./user-service/app:/code/app
+      - ./core:/code/core
+    depends_on:
+      - postgres
+      - migrations
+    networks:
+      - app-network
+
+
+  nginx-reverse-proxy:
+    image: nginx:latest
+    ports:
+      - 8000:8080
+    volumes:
+      - ./nginx_config.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - auth-service
+      - user-service
+      - vinyl-records-service
+      - seller-service
+      - frontend
+    networks:
+      - app-network
+
+
+
+networks:
+  app-network:
+    driver: bridge

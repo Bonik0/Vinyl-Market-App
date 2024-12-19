@@ -1,0 +1,1 @@
+from .router import router as vinyl_record_router

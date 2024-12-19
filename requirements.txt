@@ -1,0 +1,10 @@
+fastapi[all]
+aiohttp
+pytest
+pytest-repeat
+sqlalchemy
+alembic
+asyncpg
+sqlalchemy-utils
+pyjwt
+alembic_utils

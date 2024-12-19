@@ -1,0 +1,38 @@
+
+{% if orders["counter"] > 0%}
+<div class="product-list">
+    {% for item in orders["items"] %}
+    <div class="product">
+        <img src={{item["image_url"]}} alt="Product Image">
+        <div class="product-info">
+            <a href="{{item["local_link"]}}" class="product-href">
+                <h3>{{item["title"]}}</h3>
+            </a>
+            <p>
+                <strong>Created at :</strong> {{item["created_at_str"]}}
+            </p>
+            <p>
+                <strong>UPC :</strong> {{item["upc"]}}
+            </p>
+            <p>
+                <strong>Release Date :</strong> {{item["release_date_day"]}}/{{item["release_date_month"]}}/{{item["release_date_year"]}}
+            </p>
+        </div>
+        <div class="product-actions">
+            <span class="product-status">{{item["status"].upper()}}</span>
+            {% if item["status"] != "canceled" and item["status"] != "delivered" %}
+            <div class="action-buttons">
+                <button onclick="NextStepOrder({{item["order_id"]}})" class="next-step-button">Next Step</button>
+                <button onclick="CancelOrder({{item["order_id"]}})" class="cancel-button">Cancel</button>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    {% else %}
+    <div class="not-found-container">
+        <div class="not-found">NO ORDERS</div>
+    </div>
+    {% endif %}
+</div>

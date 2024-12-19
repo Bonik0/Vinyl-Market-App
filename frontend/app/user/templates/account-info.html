@@ -1,0 +1,26 @@
+
+<button class="logout-button" id="logout">Logout</button>
+<button class="full-logout-button" id="full-logout">Full logout</button>
+
+<div class="product-header">
+    <div class="product-info">
+        <div class="details">
+            <h2>Your Account</h2>
+            
+            <p><strong>ID :</strong> {{user["user_id"]}}</p>
+            <p><strong>Username :</strong> {{user["username"]}}</p>
+            <p><strong>Email :</strong> {{user["email"]}}</p>
+            <p><strong>First name :</strong> {{user["first_name"]}}</p>
+            <p><strong>Last name :</strong> {{user["last_name"]}}</p>
+            <p><strong>Role :</strong> {{user["role"]}}</p>
+        </div>
+    </div>
+</div>
+{% if user["role"] == 'user' %}
+    <button class="seller-button" id="userRegistrationAsSeller">Become a seller?</button>
+{% else %}
+<div class="product-header">
+    <button class="seller-orders-button" id="SellerOrders">Your orders</button>
+    <button class="seller-records-button" id="SellerRecords">Your vinyl</button>
+</div>
+{% endif %}

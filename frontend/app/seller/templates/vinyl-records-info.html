@@ -1,0 +1,37 @@
+<button class="create-button" id="CreateButton">Create</button>
+
+{% if vinyl_records["counter"] > 0 %}
+
+        <!-- Product List -->
+        <div class="product-list">
+            {% for item in vinyl_records["items"] %}
+            <div class="product">
+                <img src={{item["image_url"]}} alt="Product Image">
+                <div class="product-info">
+                    <a href="{{item["local_link"]}}" class="product-href">
+                        <h3>{{item["title"]}}</h3>
+                    </a>
+                    <p>
+                        <strong>UPC :</strong> {{item["upc"]}}
+                    </p>
+                    <p>
+                        <strong>Release Date :</strong> {{item["release_date_day"]}}/{{item["release_date_month"]}}/{{item["release_date_year"]}}
+                    </p>
+                </div>
+                <div class="product-quantity">{{item["quantity"]}}</div>
+                <div class="product-actions">
+                    <span class="product-price">{{item["price"]}}$</span>
+                    <div class="vinyl-records-buttons">
+                        <button onclick = "UpdateFunc({{item["id"]}})" class="update-button">Update</button>
+                        <button onclick = "DeleteVinylRecord({{item["id"]}})" class="delete-button">Delete</button>
+                    </div>
+                </div>
+            </div>
+        
+            {% endfor %}
+        </div>
+        {% else %}
+        <div class="not-found-container">
+            <div class="not-found">YOU HAVE NOT VINYL RECORDS IN SALE</div>
+        </div>
+        {% endif %}

@@ -1,0 +1,159 @@
+.container {
+    width: 90%;
+    margin: 20px auto;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 1);
+    padding: 20px;
+}
+
+.pagination {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.pagination button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+}
+.pagination button.active {
+    background-color: #0056b3; /* Подсветка активной кнопки */
+}
+.pagination button:hover {
+    background: #0056b3;
+}
+.product-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #fafafa;
+}
+.product img {
+    width: 125px;
+    height: 125px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    margin-right: 20px;
+}
+.product-info {
+    flex: 1;
+}
+.product-actions {
+    display: flex;
+    flex-direction: column; /* Размещаем элементы в колонку */
+    align-items: center; /* Центрируем элементы */
+    gap: 10px; /* Отступ между статусом и кнопками */
+}
+
+.product-price {
+    font-size: 38px;
+    color: green;
+    font-weight: bold;
+    margin-bottom: 0; /* Убираем лишние отступы снизу */
+    text-align: center; /* Центрируем текст */
+}
+
+.vinyl-records-buttons {
+    display: flex;
+    flex-direction: row; /* Кнопки располагаются в строку */
+    align-items: center; /* Центрируем кнопки по вертикали */
+    justify-content: center; /* Центрируем кнопки по горизонтали */
+    gap: 10px; /* Отступ между кнопками */
+}
+
+.delete-button {
+    background: #ff4400;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    flex-shrink: 0; /* Гарантия, что кнопки не сжимаются */
+}
+
+.update-button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-size: 14px;
+    flex-shrink: 0; /* Гарантия, что кнопки не сжимаются */
+}
+
+.update-button:hover{
+    background: #0056b3;
+}
+
+.delete-button:hover{
+    background: #971f04;
+}
+.not-found-container {
+    flex: 1; /* Занимает всё доступное пространство */
+    display: flex;
+    justify-content: center; /* Центрирует по горизонтали */
+    align-items: center; /* Центрирует по вертикали */
+    text-align: center;
+}
+.not-found {
+    margin: auto;
+    place-content: center;
+    font-size: 40px;
+    color: #555;
+    font-weight: bold;
+}
+.product-quantity {
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    margin-right: 40px;
+    font-size: 16px;
+    color: #666;
+}
+
+.product-href {
+    text-decoration: none;
+    color: #333;
+}
+.product-href:hover{
+    color: #0056b3;
+}
+
+.create-button {
+    margin-left : 50px;
+    margin-bottom: 25px;
+    background: #28a745;
+    color: white;
+    border: none;
+    width: 150px;
+    padding: 12px 16px; /* Размер кнопки чуть больше, чем у update-button */
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 25px; /* Чуть больше, чем update-button */
+    font-weight: bold;
+    text-align: center;
+}
+
+.create-button:hover {
+    background: #218838;
+}
+
+
+
+
+

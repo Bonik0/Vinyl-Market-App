@@ -1,0 +1,33 @@
+
+{% if bucket["counter"] > 0%}
+<div class="product-list">
+    {% for item in bucket["items"] %}
+    <div class="product">
+        <img src={{item["image_url"]}} alt="Product Image">
+        <div class="product-info">
+            <a href="{{item["local_link"]}}" class="product-href">
+                <h3>{{item["title"]}}</h3>
+            </a>
+            <p>
+                <strong>UPC :</strong> {{item["upc"]}}
+            </p>
+            <p>
+                <strong>Release Date :</strong> {{item["release_date_day"]}}/{{item["release_date_month"]}}/{{item["release_date_year"]}}
+            </p>
+        </div>
+        <div class="product-actions">
+            <span class="product-price">{{item["price"]}}$</span>
+            <div class="bucket-buttons">
+                <button onclick = "OrderFromBucket({{item["id"]}})" class="bucket-order-button">Order</button>
+                <button onclick = "DeleteFromBucket({{item["id"]}})" class="bucket-delete-button">Delete</button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    {% else %}
+    <div class="not-found-container">
+        <div class="not-found">EMPTY BUCKET</div>
+    </div>
+    {% endif %}
+</div>
