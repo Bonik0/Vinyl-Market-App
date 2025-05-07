@@ -61,7 +61,7 @@
 ### Запуск проекта
 
 ```bash
-git clone https://github.com/ResetPlease/Random-coffee-MAI-Tech.git
-cd random-coffee
+git clone https://github.com/Bonik0/Vinyl-Market-App.git
+cd Vinyl-Market-App
 docker compose up -d
 ```
