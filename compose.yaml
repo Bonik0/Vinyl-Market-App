@@ -7,19 +7,17 @@ services:
     image: postgres:13-alpine
     restart: always
     ports:
-      - 5432:5432
+      - 5434:5432
     env_file:
       ./core/env/postgres_connection.env
     networks:
       - app-network
     
-  migrations:
-    build: 
-      context: .
-      dockerfile: migrations.Dockerfile
+  migration-service:
+    build: ./migration-service
     command: "alembic upgrade head"
     volumes:
-      - ./migration:/code/migration
+      - ./migration-service/migration:/code/migration
       - ./core:/code/core
     depends_on:
       - postgres
@@ -29,14 +27,11 @@ services:
   auth-service:
     build: ./auth-service
     command: "uvicorn app.main:app --reload --workers 1 --host 0.0.0.0 --port 8000"
-    ports:
-      - 8001:8000
     volumes:
       - ./auth-service/app:/code/app
       - ./core:/code/core
     depends_on:
       - postgres
-      - migrations
     networks:
       - app-network
 
@@ -50,7 +45,6 @@ services:
       - ./core:/code/core
     depends_on:
       - postgres
-      - migrations
     networks:
       - app-network
 
@@ -64,7 +58,6 @@ services:
       - ./core:/code/core
     depends_on:
       - postgres
-      - migrations
     networks:
       - app-network
 
@@ -95,7 +88,6 @@ services:
       - ./core:/code/core
     depends_on:
       - postgres
-      - migrations
     networks:
       - app-network
 

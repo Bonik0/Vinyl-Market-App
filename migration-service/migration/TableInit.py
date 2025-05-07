@@ -259,34 +259,3 @@ class DatabaseRandomRowsGenrator:
                         wf.write(f'{vinyl["id"]},{genre_id}\n')
                     usered.append(genre_id)
             
-
-#DatabaseRandomRowsGenrator.create_random_orders('migration/versions/csv_data/users_clear.csv',
-#                                                'migration/versions/csv_data/vinyl_record_without_genres.csv',
-#                                                'migration/versions/csv_data/orders.csv'
-#                                            )
-#
-
-
-#DatabaseRandomRowsGenrator.create_random_bucket_items('migration/versions/csv_data/users_clear.csv',
-#                                                      'migration/versions/csv_data/vinyl_record_without_genres.csv',
-#                                                      'migration/versions/csv_data/bucket.csv'
-#                                                      ) 
-  
-  
-#DatabaseRandomRowsGenrator.sellers_vinyl_record('migration/versions/csv_data/vinyl_record_without_genres.csv',
-#                                                'migration/versions/csv_data/seller.csv',
-#                                                'migration/versions/csv_data/seller_vinyl_record.csv'
-#                                                )
-#DatabaseRandomRowsGenrator.create_assotiation_vinyl_artist('migration/versions/csv_data/vinyl_record_without_genres.csv',
-#                                                        'migration/versions/csv_data/artist.csv',
-#                                                        'migration/versions/csv_data/assotiation_vinyl_artist.csv')          
-#DatabaseRandomRowsGenrator.get_all_artist('migration/versions/csv_data/vinyl_record_without_genres.csv',
-#                                          'migration/versions/csv_data/artist.csv')           
-#DatabaseRandomRowsGenrator.delete_repeat_rows_vinyl('migration/versions/csv_data/vinyl_record_clear.csv',
-#                                                    'migration/versions/csv_data/vinyl_record_without_genres.csv')   
-#DatabaseRandomRowsGenrator.create_assotiation_vinyl_record_genres('migration/versions/csv_data/vinyl_record_without_genres.csv',
-#                                                                  'migration/versions/csv_data/genre.csv',
-#                                                                  'migration/versions/csv_data/assotiation_vinyl_title_genre.csv')          
-#DatabaseRandomRowsGenrator.delete_none_rows('migration/versions/csv_data/vinyl_record.csv', 'migration/versions/csv_data/vinyl_record_clear.csv')    
-            
-#DatabaseRandomRowsGenrator.ctrate_random_seller('migration/versions/csv_data/users_clear.csv', 'migration/versions/csv_data/seller.csv')
